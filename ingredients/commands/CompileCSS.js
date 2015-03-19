@@ -36,8 +36,6 @@ module.exports = function(options) {
             .pipe(plugins.if(config.production, plugins.minifyCss()))
             .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.write('.')))
             .pipe(gulp.dest(options.output || config.cssOutput))
-            .pipe(plugins.bless())
-            .pipe(gulp.dest(options.output || config.cssOutput))
             .pipe(new Notification().message(options.compiler + ' Compiled!'));
     });
 
